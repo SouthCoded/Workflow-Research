@@ -3,12 +3,6 @@ on:
   workflow_dispatch:  
 
 jobs:
-  commands:
-    name: Test
-    environment: prod
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3   
-      - name: Run command
-        uses: SouthCoded/Workflow-Research/.github/workflows/prod_work.yml@main
+  dispatch:
+    uses: SouthCoded/Workflow-Research/.github/workflows/prod_work.yml@main
+
