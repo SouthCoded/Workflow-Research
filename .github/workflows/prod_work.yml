@@ -7,14 +7,14 @@ jobs:
   commands:
     name: Test
     runs-on: ubuntu-20.04
-    environment: prod
+    environment: test
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3   
       - name: Run command
         env:
           repo_secret: ${{ secrets.PROD_REPO_SECRET }}
-          env_secret: ${{ secrets.PROD_ENV_REPO_SECRET }}
+          env_secret: ${{ secrets.test_env }}
           caller_secret: ${{ secrets.OTHER_REPO_SECRET }}
           caller_env_secret: ${{ secrets.OTHER_ENV_REPO_SECRET }}
         run: 
