@@ -14,7 +14,7 @@ jobs:
       - name: Run command
         env:
           repo_secret: ${{ secrets.PROD_REPO_SECRET }}
-          env_secret: ${{ secrets.test_env }}
+          env_secret: ${{ secrets.TEST_ENV }}
           caller_secret: ${{ secrets.OTHER_REPO_SECRET }}
           caller_env_secret: ${{ secrets.OTHER_ENV_REPO_SECRET }}
         run: 
