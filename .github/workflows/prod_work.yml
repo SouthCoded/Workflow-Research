@@ -2,9 +2,6 @@ name: CI
 on:
   workflow_dispatch:
   workflow_call:
-    secrets:
-        OTHER_ENV_REPO_SECRET:
-          required: true
 
 jobs:
   commands:
