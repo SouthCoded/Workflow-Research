@@ -4,9 +4,9 @@ on:
   workflow_dispatch:  
 
 jobs:
-  environment: prod
   commands:
     name: Test
+    environment: prod
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout Code
