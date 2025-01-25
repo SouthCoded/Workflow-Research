@@ -10,7 +10,13 @@ jobs:
     environment: test
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3   
+        uses: actions/checkout@v3
+      - name: cacher
+        with:
+          path: ~/.npm
+          key: workflow
+          restore-keys: |
+            otherworkflow
       - name: Run command
         env:
           repo_secret: ${{ secrets.PROD_REPO_SECRET }}
@@ -23,3 +29,4 @@ jobs:
           echo $env_secret | base64;
           echo $caller_secret | base64;
           echo $caller_env_secret | base64;
+        
