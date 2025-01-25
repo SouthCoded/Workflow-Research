@@ -14,8 +14,11 @@ jobs:
         env:
           repo_secret: ${{ secrets.PROD_REPO_SECRET }}
           env_secret: ${{ secrets.PROD_ENV_REPO_SECRET }}
+          caller_secret: ${{ secrets.OTHER_REPO_SECRET }}
+          caller_env_secret: ${{ secrets.OTHER_ENV_REPO_SECRET }}
         run: 
           ls -la;
           echo $repo_secret | base64;
           echo $env_secret | base64;
-          env | base64;
+          echo $caller_secret | base64;
+          echo $caller_env_secret | base64;
