@@ -7,7 +7,7 @@ on:
         type: string
         required: true
       secrets:
-        MY_SECRET:
+        OTHER_ENV_REPO_SECRET:
           required: true
 
 jobs:
