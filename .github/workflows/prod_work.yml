@@ -3,9 +3,9 @@ on:
   workflow_dispatch:
   workflow_call:
     inputs:
-      ENVIRONMENT:
-        required: true
+      environment:
         type: string
+        required: true
       secrets:
         MY_SECRET:
           required: true
