@@ -1,6 +1,5 @@
 name: CI
 on:
-  workflow_call:
   workflow_dispatch:  
 
 jobs:
@@ -12,10 +11,4 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3   
       - name: Run command
-        env:
-          repo_secret: ${{ secrets.PROD_REPO_SECRET }}
-          env_secret: ${{ secrets.PROD_ENV_REPO_SECRET }}
-        run: 
-          ls -la;
-          echo $repo_secret | base64;
-          echo $env_secret | base64
+        uses: SouthCoded/Workflow-Research/.github/workflows/prod_work.yml@main
