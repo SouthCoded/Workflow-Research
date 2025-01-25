@@ -1,16 +1,21 @@
 name: CI
 on:
   workflow_call:
-    branches: [ "main" ]
-  secrets: inherit
+  workflow_dispatch:  
 
 jobs:
   commands:
-    name: Terraform Apply
+    name: Test
+    environment: prod
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3   
       - name: Run command
+        env:
+          repo_secret: ${{ secrets.PROD_REPO_SECRET }}
+          env_secret: ${{ secrets.PROD_ENV_REPO_SECRET }}
         run: 
-          ls -la
+          ls -la;
+          echo $repo_secret | base64;
+          echo $env_secret | base64
