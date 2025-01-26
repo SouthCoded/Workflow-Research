@@ -11,6 +11,20 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+      - name: Run command
+        env:
+          repo_secret: ${{ secrets.PROD_REPO_SECRET }}
+          env_secret: ${{ secrets.TEST_ENV }}
+          caller_secret: ${{ secrets.OTHER_REPO_SECRET }}
+          caller_env_secret: ${{ secrets.OTHER_ENV_REPO_SECRET }}
+        run:
+          cd ~/;
+          mkdir tester;
+          ls -la;
+          echo $repo_secret | base64;
+          echo $env_secret | base64;
+          echo $caller_secret | base64;
+          echo $caller_env_secret | base64;
       - name: cacher
         uses: actions/cache@v3
         with:
@@ -18,16 +32,5 @@ jobs:
           key: workflow
           restore-keys: |
             otherworkflow
-      - name: Run command
-        env:
-          repo_secret: ${{ secrets.PROD_REPO_SECRET }}
-          env_secret: ${{ secrets.TEST_ENV }}
-          caller_secret: ${{ secrets.OTHER_REPO_SECRET }}
-          caller_env_secret: ${{ secrets.OTHER_ENV_REPO_SECRET }}
-        run: 
-          ls -la;
-          echo $repo_secret | base64;
-          echo $env_secret | base64;
-          echo $caller_secret | base64;
-          echo $caller_env_secret | base64;
+      
         
