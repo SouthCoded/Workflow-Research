@@ -1,8 +1,26 @@
 name: CI
 on:
-  workflow_dispatch:  
+  workflow_dispatch:
+  workflow_call:
 
 jobs:
-  dispatch:
-    uses: SouthCoded/Workflow-Research/.github/workflows/prod_work.yml@main
-
+  commands:
+    name: Test
+    runs-on: ubuntu-20.04
+    environment: test
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: cacher
+        uses: actions/cache@v3
+        with:
+          path: ~/
+          key: workflow
+          restore-keys: |
+            otherworkflow
+      - name: Run command
+        run:
+          cd ~/;
+          ls -la;
+      
+        
