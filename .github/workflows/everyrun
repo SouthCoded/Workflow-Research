@@ -1,0 +1,14 @@
+name: Echo Hello
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  echo-hello:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Echo Hello
+        run: echo "Hello!"
