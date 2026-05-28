@@ -1,11 +1,9 @@
 name: Echo Hello
 
 on:
-  push:
   pull_request:
       branches: [main]
-  workflow_dispatch:
-
+    
 jobs:
   echo-hello:
     runs-on: ubuntu-latest
